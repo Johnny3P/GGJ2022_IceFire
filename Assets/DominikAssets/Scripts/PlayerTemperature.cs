@@ -25,14 +25,76 @@ public class PlayerTemperature : MonoBehaviour
     public float deadlyHotTemp;
 
 
+    private bool isColorChanging = true;
+    private bool colorToggle;
+    private Renderer PlayerRenderer;
+
+    private void Start()
+    {
+
+        PlayerRenderer = GetComponentInChildren<Renderer>();
+
+    }
+
     private void Update()
     {
+
+
         //Neutralize: Temperature moves slowly back to zero
         if(canNeutralize && temperature != 0)
         {
             temperature += -Mathf.Sign(temperature) * neutralizeSpeed;
             UpdateTemperatureUI();
 
+        }
+
+
+        if (isColorChanging)
+        {
+            if (temperature > 0f)
+            {
+                if (temperature > 0.9f)
+                {
+                    if (colorToggle)
+                    {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1, 1, 1));
+                        colorToggle = false;
+                    }
+                    else
+                    {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperature, 1 - temperature, 1));
+                        colorToggle = true;
+                    }
+                    isColorChanging = false;
+                    StartCoroutine(ColorBlinking());
+                }
+                else
+                {
+                    PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperature, 1 - temperature, 1));
+                }
+            }
+            else
+            {
+                if (temperature < -0.9f)
+                {
+                    if (colorToggle)
+                    {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1, 1, 1));
+                        colorToggle = false;
+                    }
+                    else
+                    {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperature), 1 - Mathf.Abs(temperature), 1, 1));
+                        colorToggle = true;
+                    }
+                    isColorChanging = false;
+                    StartCoroutine(ColorBlinking());
+                }
+                else
+                {
+                    PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperature), 1 - Mathf.Abs(temperature), 1, 1));
+                }
+            }
         }
     }
 
@@ -140,6 +202,15 @@ public class PlayerTemperature : MonoBehaviour
             GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, 8);
 
         }
+    }
+
+
+
+    private IEnumerator ColorBlinking()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        isColorChanging = true;
     }
 
 }
