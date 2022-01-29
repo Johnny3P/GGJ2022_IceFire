@@ -27,13 +27,10 @@ public class PlayerTemperature : MonoBehaviour
 
     private bool isColorChanging = true;
     private bool colorToggle;
-    private Renderer PlayerRenderer;
+    [SerializeField] private Renderer PlayerRenderer;
 
     private void Start()
     {
-
-        PlayerRenderer = GetComponentInChildren<Renderer>();
-
     }
 
     private void Update()
@@ -48,12 +45,12 @@ public class PlayerTemperature : MonoBehaviour
 
         }
 
-
+        float temperatureColor = temperature / 60;
         if (isColorChanging)
         {
-            if (temperature > 0f)
+            if (temperatureColor > 0f)
             {
-                if (temperature > 0.9f)
+                if (temperatureColor > 0.9f)
                 {
                     if (colorToggle)
                     {
@@ -62,7 +59,7 @@ public class PlayerTemperature : MonoBehaviour
                     }
                     else
                     {
-                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperature, 1 - temperature, 1));
+                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperatureColor, 1 - temperatureColor, 1));
                         colorToggle = true;
                     }
                     isColorChanging = false;
@@ -70,12 +67,12 @@ public class PlayerTemperature : MonoBehaviour
                 }
                 else
                 {
-                    PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperature, 1 - temperature, 1));
+                    PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperatureColor, 1 - temperatureColor, 1));
                 }
             }
             else
             {
-                if (temperature < -0.9f)
+                if (temperatureColor < -0.9f)
                 {
                     if (colorToggle)
                     {
@@ -84,7 +81,7 @@ public class PlayerTemperature : MonoBehaviour
                     }
                     else
                     {
-                        PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperature), 1 - Mathf.Abs(temperature), 1, 1));
+                        PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperatureColor), 1 - Mathf.Abs(temperatureColor), 1, 1));
                         colorToggle = true;
                     }
                     isColorChanging = false;
@@ -92,7 +89,7 @@ public class PlayerTemperature : MonoBehaviour
                 }
                 else
                 {
-                    PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperature), 1 - Mathf.Abs(temperature), 1, 1));
+                    PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperatureColor), 1 - Mathf.Abs(temperatureColor), 1, 1));
                 }
             }
         }

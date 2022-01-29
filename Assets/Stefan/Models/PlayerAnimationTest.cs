@@ -87,7 +87,7 @@ public class PlayerAnimationTest : MonoBehaviour
             }
         }
 
-        temperature -= Time.deltaTime/20;
+        temperature -= Time.deltaTime/15;
     }
 
     void OnCollisionEnter(Collision theCollision) {
