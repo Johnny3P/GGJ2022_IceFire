@@ -17,4 +17,20 @@ public class TemperatureModifier : MonoBehaviour
             other.gameObject.GetComponent<PlayerTemperature>().ChangeTemperature(temperatureChange);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerTemperature>().canNeutralize = false; 
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerTemperature>().canNeutralize = true; ;
+        }
+    }
 }

@@ -11,6 +11,8 @@ public class PlayerTemperature : MonoBehaviour
     //Speed with which temperature moves to 0 back
     public float neutralizeSpeed;
 
+    public bool canNeutralize = true;
+
 
     public enum TemperatureType {Normal, Hot, VeryHot, DeadlyHot, Cold, VeryCold, DeadlyCold };
 
@@ -26,7 +28,7 @@ public class PlayerTemperature : MonoBehaviour
     private void Update()
     {
         //Neutralize: Temperature moves slowly back to zero
-        if(temperature != 0)
+        if(canNeutralize && temperature != 0)
         {
             temperature += -Mathf.Sign(temperature) * neutralizeSpeed;
             UpdateTemperatureUI();

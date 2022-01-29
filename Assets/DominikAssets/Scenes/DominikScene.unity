@@ -1002,7 +1002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temperature: 0
-  neutralizeSpeed: 0.02
+  neutralizeSpeed: 0.1
+  canNeutralize: 0
   maxNormalTemp: 10
   maxHotTemp: 20
   deadlyHotTemp: 50
