@@ -168,9 +168,11 @@ GameObject:
   - component: {fileID: 1297580968864677220}
   - component: {fileID: 4153345836327729091}
   - component: {fileID: 9058607726571572281}
+  - component: {fileID: 392238572}
+  - component: {fileID: 392238573}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +208,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!136 &1297580968864677221
 CapsuleCollider:
@@ -268,14 +270,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4616eb4dd11834830aaeee98f0c93aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  jumpSpeed: 7
-  cancelSpeed: 3
+  moveSpeed: 15
+  jumpSpeed: 10
+  cancelSpeed: -5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 2178244127322678326}
-  groundCheckRadius: 0.1
+  groundCheckRadius: 1
   groundCheckPauseTime: 0.2
   cancelJumpPauseTime: 0.3
   cancelJumpDelayTime: 0.3
@@ -297,6 +299,55 @@ MonoBehaviour:
   maxNormalTemp: 20
   maxHotTemp: 40
   deadlyHotTemp: 60
+--- !u!23 &392238572
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215919268874689407}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &392238573
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215919268874689407}
+  m_Mesh: {fileID: -3608689983483504861, guid: a5628d934c0ee054b80ed76ac941b273, type: 3}
 --- !u!1 &2717258538580868536
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +547,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4137455876009383503, guid: a5628d934c0ee054b80ed76ac941b273, type: 3}
+  m_Mesh: {fileID: -3608689983483504861, guid: a5628d934c0ee054b80ed76ac941b273, type: 3}
   m_Bones:
   - {fileID: 2889051328599066741}
   - {fileID: 1074158773379506123}

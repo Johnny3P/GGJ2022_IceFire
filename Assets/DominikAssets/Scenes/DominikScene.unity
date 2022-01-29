@@ -676,10 +676,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1297580968864677222, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
-      propertyPath: m_Constraints
-      value: 120
-      objectReference: {fileID: 0}
     - target: {fileID: 1552429575098089925, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -727,26 +723,6 @@ PrefabInstance:
     - target: {fileID: 2215919268874689407, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2215919268874689407, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153345836327729091, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
-      propertyPath: jumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153345836327729091, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
-      propertyPath: moveSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153345836327729091, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
-      propertyPath: cancelSpeed
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153345836327729091, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
-      propertyPath: groundCheckRadius
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e426a2ae9def44f62869a85c569f03d5, type: 3}
