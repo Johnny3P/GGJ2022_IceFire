@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     public float cancelJumpDelayTime;
 
+    private Animator animator;
+
 
 
     private Rigidbody rb;
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        animator = GetComponent<Animator>();
         canJump = true;
         groundCheckPauseComplete = true;
     }
@@ -53,6 +55,8 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
+
+            animator.SetTrigger("EndJump");
         }
         else
         {
@@ -65,8 +69,24 @@ public class PlayerController : MonoBehaviour
 
         float direction = Input.GetAxis("Horizontal");
 
+        
+
+
+
+        if(direction < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 90, 0);
+                }
+        else if (direction > 0)
+        {
+            transform.eulerAngles = new Vector3(0, -90, 0);
+        }
+
 
         rb.velocity = new Vector3(direction * moveSpeed, rb.velocity.y, 0);
+
+        animator.SetFloat("Speed", rb.velocity.magnitude);
+
 
 
         //Jump
@@ -76,6 +96,9 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x , jumpSpeed , 0);
 
             isJumping = true;
+
+            animator.SetTrigger("Jump");
+
 
             groundCheckPauseComplete = false;
 
