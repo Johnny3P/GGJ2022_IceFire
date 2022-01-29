@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerTemperature : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class PlayerTemperature : MonoBehaviour
     public void ChangeTemperature(float change)
     {
         temperature += change;
+
+
+        //If deadly temperature is reached -> game over
+        if (IsDead())
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
     }
 
 
@@ -70,5 +79,15 @@ public class PlayerTemperature : MonoBehaviour
 
     }
 
+    //Check if deadly temperature is reached
+    private bool IsDead()
+    {
+        if (GetTemperatureType() == TemperatureType.DeadlyCold || GetTemperatureType() == TemperatureType.DeadlyHot)
+        {
+            return true;
+        }
+
+        else return false;
+    }
 
 }
