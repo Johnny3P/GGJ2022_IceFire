@@ -45,7 +45,7 @@ public class PlayerTemperature : MonoBehaviour
 
         }
 
-        float temperatureColor = temperature / 60;
+        float temperatureColor = temperature / deadlyHotTemp;
         if (isColorChanging)
         {
             if (temperatureColor > 0f)
