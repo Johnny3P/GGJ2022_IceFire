@@ -9,6 +9,7 @@ public class PlayerAnimationTest : MonoBehaviour
     [SerializeField] private float distToGround = 200.5f;
 
     private Rigidbody rb;
+    private Renderer PlayerRenderer;
 
     private bool isGrounded = true;
     private bool isJumping = false;
@@ -17,10 +18,15 @@ public class PlayerAnimationTest : MonoBehaviour
     private Animator animator;
     private bool groundCheckPauseComplete;
 
+    private float temperature = 0f;
+    private bool colorToggle;
+    private bool isColorChanging = true;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        PlayerRenderer = GetComponentInChildren<Renderer>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -47,6 +53,41 @@ public class PlayerAnimationTest : MonoBehaviour
             StartCoroutine(GroundCheckPause());
         }
 
+        Debug.Log(temperature);
+
+        if (isColorChanging) {
+            if (temperature > 0f) {
+                if (temperature > 0.9f) {
+                    if (colorToggle) {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1, 1, 1));
+                        colorToggle = false;
+                    } else {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperature, 1 - temperature, 1));
+                        colorToggle = true;
+                    }
+                    isColorChanging = false;
+                    StartCoroutine(ColorBlinking());
+                } else {
+                    PlayerRenderer.material.SetColor("_Color", new Color(1f, 1 - temperature, 1 - temperature, 1));
+                }
+            } else {
+                if (temperature < -0.9f) {
+                    if (colorToggle) {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1f, 1, 1, 1));
+                        colorToggle = false;
+                    } else {
+                        PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperature), 1 - Mathf.Abs(temperature), 1, 1));
+                        colorToggle = true;
+                    }
+                    isColorChanging = false;
+                    StartCoroutine(ColorBlinking());
+                } else {
+                    PlayerRenderer.material.SetColor("_Color", new Color(1 - Mathf.Abs(temperature), 1 - Mathf.Abs(temperature), 1, 1));
+                }
+            }
+        }
+
+        temperature -= Time.deltaTime/20;
     }
 
     void OnCollisionEnter(Collision theCollision) {
@@ -64,4 +105,9 @@ public class PlayerAnimationTest : MonoBehaviour
         groundCheckPauseComplete = true;
     }
 
+    private IEnumerator ColorBlinking() {
+        yield return new WaitForSeconds(0.2f);
+
+        isColorChanging = true;
+    }
 }
