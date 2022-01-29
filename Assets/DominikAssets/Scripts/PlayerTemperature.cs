@@ -26,6 +26,10 @@ public class PlayerTemperature : MonoBehaviour
         temperature += change;
 
 
+        //TODO: Adjust Temperature in UI
+      
+
+
         //If deadly temperature is reached -> game over
         if (IsDead())
         {
