@@ -5,6 +5,8 @@
 [Bb]uilds/
 [Uu]serSettings/
 [Ll]ogs/
+[Pp]ackages/
+
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
