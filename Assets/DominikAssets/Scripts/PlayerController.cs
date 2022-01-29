@@ -16,7 +16,13 @@ public class PlayerController : MonoBehaviour
 
     public float groundCheckRadius;
 
-    public float jumpTimeOut;
+    public float groundCheckPauseTime;
+
+    public float cancelJumpPauseTime;
+
+    public float cancelJumpDelayTime;
+
+
 
     private Rigidbody rb;
 
@@ -26,7 +32,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
 
-    private bool jumpTimerComplete;
+    private bool groundCheckPauseComplete;
+
+    private bool canCancelJump;
 
 
 
@@ -36,12 +44,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         canJump = true;
-        jumpTimerComplete = true;
+        groundCheckPauseComplete = true;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer).Length > 0 && jumpTimerComplete)
+        if (Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer).Length > 0 && groundCheckPauseComplete)
         {
             isGrounded = true;
             isJumping = false;
@@ -69,9 +77,11 @@ public class PlayerController : MonoBehaviour
 
             isJumping = true;
 
-            jumpTimerComplete = false;
+            groundCheckPauseComplete = false;
 
-            StartCoroutine(WaitAfterJump());
+            StartCoroutine(GroundCheckPause());
+
+            //StartCoroutine(CancelJumpPause());
 
 
         }
@@ -79,12 +89,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space) && isJumping)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-
-            //rb.AddForce(new Vector3(0, cancelSpeed, 0));
-
-
             isJumping = false;
+
+
+            StartCoroutine(CancelJump());
+
 
         }
 
@@ -93,10 +102,33 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private IEnumerator WaitAfterJump()
+    private IEnumerator GroundCheckPause()
     {
-        yield return new WaitForSeconds(jumpTimeOut);
+        yield return new WaitForSeconds(groundCheckPauseTime);
 
-        jumpTimerComplete = true;
+        groundCheckPauseComplete = true;
     }
+
+   /* private IEnumerator CancelJumpPause()
+    {
+        yield return new WaitForSeconds(cancelJumpPauseTime);
+
+        canCancelJump = true;
+    }*/
+
+    private IEnumerator CancelJump()
+    {
+        canCancelJump = false;
+
+        yield return new WaitForSeconds(cancelJumpDelayTime);
+
+        rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+
+        //rb.AddForce(new Vector3(0, cancelSpeed, 0));
+
+
+
+    }
+
+
 }
