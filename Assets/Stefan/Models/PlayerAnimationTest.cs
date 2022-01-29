@@ -6,14 +6,12 @@ public class PlayerAnimationTest : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
     [SerializeField] private float jumpSpeed = 100000f;
-    [SerializeField] private float distToGround = 200.5f;
 
     private Rigidbody rb;
     private Renderer PlayerRenderer;
 
     private bool isGrounded = true;
     private bool isJumping = false;
-    private bool m_IsOnGround;
 
     private Animator animator;
     private bool groundCheckPauseComplete;
@@ -89,7 +87,6 @@ public class PlayerAnimationTest : MonoBehaviour
 
         temperature -= Time.deltaTime/15;
     }
-
     void OnCollisionEnter(Collision theCollision) {
         if (groundCheckPauseComplete) {
             Debug.Log("Test");
