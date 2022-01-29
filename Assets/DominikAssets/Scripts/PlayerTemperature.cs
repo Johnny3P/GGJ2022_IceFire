@@ -26,8 +26,34 @@ public class PlayerTemperature : MonoBehaviour
         temperature += change;
 
 
-        //TODO: Adjust Temperature in UI
-      
+        //Adjust Temperature in UI
+
+        Vector3 hotScale = GameObject.Find("HotScale").transform.localScale;
+        Vector3 coldScale = GameObject.Find("ColdScale").transform.localScale;
+
+
+        if (temperature > 0)
+        {
+
+
+            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, (temperature / deadlyHotTemp) * 92 + 8);
+            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, 8);
+        }
+
+       else if (temperature < 0)
+        {
+
+
+            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, (Mathf.Abs(temperature) / deadlyHotTemp) * 92 + 8);
+            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, 8);
+        }
+        else if (temperature == 0)
+        {
+            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, 8);
+            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, 8);
+
+        }
+
 
 
         //If deadly temperature is reached -> game over
