@@ -8,6 +8,10 @@ public class PlayerTemperature : MonoBehaviour
     public float temperature;
 
 
+    //Speed with which temperature moves to 0 back
+    public float neutralizeSpeed;
+
+
     public enum TemperatureType {Normal, Hot, VeryHot, DeadlyHot, Cold, VeryCold, DeadlyCold };
 
 
@@ -19,6 +23,16 @@ public class PlayerTemperature : MonoBehaviour
     public float deadlyHotTemp;
 
 
+    private void Update()
+    {
+        //Neutralize: Temperature moves slowly back to zero
+        if(temperature != 0)
+        {
+            temperature += -Mathf.Sign(temperature) * neutralizeSpeed;
+            UpdateTemperatureUI();
+
+        }
+    }
 
     //change temperature by value "change"
     public void ChangeTemperature(float change)
@@ -27,32 +41,8 @@ public class PlayerTemperature : MonoBehaviour
 
 
         //Adjust Temperature in UI
-
-        Vector3 hotScale = GameObject.Find("HotScale").transform.localScale;
-        Vector3 coldScale = GameObject.Find("ColdScale").transform.localScale;
-
-
-        if (temperature > 0)
-        {
-
-
-            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, (temperature / deadlyHotTemp) * 92 + 8);
-            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, 8);
-        }
-
-       else if (temperature < 0)
-        {
-
-
-            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, (Mathf.Abs(temperature) / deadlyHotTemp) * 92 + 8);
-            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, 8);
-        }
-        else if (temperature == 0)
-        {
-            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, 8);
-            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, 8);
-
-        }
+        UpdateTemperatureUI();
+       
 
 
 
@@ -118,6 +108,36 @@ public class PlayerTemperature : MonoBehaviour
         }
 
         else return false;
+    }
+
+
+    private void UpdateTemperatureUI()
+    {
+        Vector3 hotScale = GameObject.Find("HotScale").transform.localScale;
+        Vector3 coldScale = GameObject.Find("ColdScale").transform.localScale;
+
+
+        if (temperature > 0)
+        {
+
+
+            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, (temperature / deadlyHotTemp) * 92 + 8);
+            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, 8);
+        }
+
+        else if (temperature < 0)
+        {
+
+
+            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, (Mathf.Abs(temperature) / deadlyHotTemp) * 92 + 8);
+            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, 8);
+        }
+        else if (temperature == 0)
+        {
+            GameObject.Find("ColdScale").transform.localScale = new Vector3(coldScale.x, coldScale.y, 8);
+            GameObject.Find("HotScale").transform.localScale = new Vector3(hotScale.x, hotScale.y, 8);
+
+        }
     }
 
 }
