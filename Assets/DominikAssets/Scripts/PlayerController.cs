@@ -69,10 +69,6 @@ public class PlayerController : MonoBehaviour
 
         float direction = Input.GetAxis("Horizontal");
 
-        
-
-
-
         if(direction < 0)
         {
             transform.eulerAngles = new Vector3(0, 90, 0);
@@ -85,7 +81,16 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new Vector3(direction * moveSpeed, rb.velocity.y, 0);
 
-        animator.SetFloat("Speed", rb.velocity.magnitude);
+      
+            animator.SetFloat("Speed", rb.velocity.magnitude);
+        
+
+        if (transform.parent != null)
+        {
+            rb.velocity += transform.parent.GetComponent<Rigidbody>().velocity;
+        }
+
+        
 
 
 
