@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DominikAssets/Scenes/Level1.unity
     guid: 963b9bc6341654a048382bc13b02ac3c
+  - enabled: 1
+    path: Assets/HelenaAssets/LevelMenu.unity
+    guid: 956022944294f104595f2dcaae022c00
   m_configObjects: {}
