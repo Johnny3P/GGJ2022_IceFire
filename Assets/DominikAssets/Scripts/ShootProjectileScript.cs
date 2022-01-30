@@ -10,6 +10,8 @@ public class ShootProjectileScript : MonoBehaviour
 
     public float projectileSpeed;
 
+    public float spawnDistance;
+
     //List of shootDirections, z-axis contains time between shots!
     public List<Vector3> shootDirections;
 
@@ -32,8 +34,9 @@ public class ShootProjectileScript : MonoBehaviour
 
             Vector3 direction = new Vector3(shootDirections[directionCount].x * projectileSpeed, shootDirections[directionCount].y * projectileSpeed, shootDirections[directionCount].z);
 
+           Vector3 normDirection = direction.normalized;
 
-            p.position = new Vector3 ( gameObject.transform.position.x + direction.x, gameObject.transform.position.y + direction.y, gameObject.transform.position.z);
+            p.position = new Vector3 ( gameObject.transform.position.x + normDirection.x * spawnDistance, gameObject.transform.position.y + normDirection.y * spawnDistance, gameObject.transform.position.z);
            
 
 

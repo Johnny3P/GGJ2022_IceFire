@@ -968,7 +968,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 182797285678858137, guid: aa1b5ad2e1fbf404f8fd90aff20743f7, type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 182797285678858138, guid: aa1b5ad2e1fbf404f8fd90aff20743f7, type: 3}
+      propertyPath: spawnDistance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 182797285678858142, guid: aa1b5ad2e1fbf404f8fd90aff20743f7, type: 3}
       propertyPath: m_RootOrder
