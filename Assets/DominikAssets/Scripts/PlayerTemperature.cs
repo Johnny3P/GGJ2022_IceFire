@@ -8,7 +8,7 @@ public class PlayerTemperature : MonoBehaviour
 {
     public float temperature;
 
-    private FMOD.Studio.EventInstance Music;
+    private FMOD.Studio.EventInstance music;
 
     //Speed with which temperature moves to 0 back
     public float neutralizeSpeed;
@@ -42,18 +42,18 @@ public class PlayerTemperature : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/MainMusic");
-        // Music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        Music.start();
+        music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/MainMusic");
+        music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        music.start();
 
     }
 
     private void Update()
     {
-
+        
 
         //Neutralize: Temperature moves slowly back to zero
-        if(canNeutralize && Mathf.Abs(temperature) > 1)
+        if (canNeutralize && Mathf.Abs(temperature) > 1)
         {
             temperature += -Mathf.Sign(temperature) * neutralizeSpeed;
             UpdateTemperatureUI();
@@ -135,6 +135,8 @@ public class PlayerTemperature : MonoBehaviour
         //If deadly temperature is reached -> game over
         if (!hasDied && IsDead())
         {
+            music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            music.release();
 
             hasDied = true;
 
@@ -146,7 +148,6 @@ public class PlayerTemperature : MonoBehaviour
 
             GameObject.Find("GameOverText").GetComponent<Text>().enabled = true;
 
-            // Music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             
 
         }
