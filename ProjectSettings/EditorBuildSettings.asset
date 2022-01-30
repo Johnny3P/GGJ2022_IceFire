@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HelenaAssets/LevelMenu.unity
     guid: 956022944294f104595f2dcaae022c00
+  - enabled: 1
+    path: Assets/Stefan/Scenes/Stefan_Level02.unity
+    guid: 9e42b840a29866146b3b7dfb224af404
+  - enabled: 1
+    path: Assets/Stefan/Scenes/Stefan_Level01.unity
+    guid: e3313d2f45fc31e4b94c07d2defe244f
+  - enabled: 1
+    path: Assets/ThomasAssets/Level_FollowProjectile.unity
+    guid: fd490a7cdfa117c45851da3dd435f44f
+  - enabled: 1
+    path: Assets/DominikAssets/Scenes/Level2.unity
+    guid: 0c374e75530e54b258c028ed00e90225
+  - enabled: 1
+    path: Assets/JohnnyAssets/Level_J.unity
+    guid: ea6cc17d4572fcc47925d24f538552c9
   m_configObjects: {}

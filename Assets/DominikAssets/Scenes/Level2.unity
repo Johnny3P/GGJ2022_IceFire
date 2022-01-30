@@ -28804,6 +28804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelGoal
       objectReference: {fileID: 0}
+    - target: {fileID: 9031048826073792349, guid: 3b8bba8bdaaf146e2a864b6a6e6df575, type: 3}
+      propertyPath: nextSceneName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 9031048826073792350, guid: 3b8bba8bdaaf146e2a864b6a6e6df575, type: 3}
       propertyPath: m_RootOrder
       value: 14
