@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ab35ea11e714e0087650d8c0da113c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temperatureChange: 0.1
+  temperatureChange: 0.3
 --- !u!65 &9098381724073398728
 BoxCollider:
   m_ObjectHideFlags: 0

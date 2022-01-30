@@ -258,6 +258,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2362651267401454775, guid: 379d8696e11ca48ebb7cd47193e442e5, type: 3}
+      propertyPath: temperatureChange
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379d8696e11ca48ebb7cd47193e442e5, type: 3}
 --- !u!4 &1783815239039979493 stripped
