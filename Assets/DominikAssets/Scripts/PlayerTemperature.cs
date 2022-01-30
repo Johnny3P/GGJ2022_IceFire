@@ -35,6 +35,7 @@ public class PlayerTemperature : MonoBehaviour
 
     [SerializeField] private GameObject explosionPrefab;
 
+    private static bool musicStarted = false;
 
 
     private bool hasDied;
@@ -42,9 +43,13 @@ public class PlayerTemperature : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/MainMusic");
-        music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        music.start();
+
+        if (!musicStarted) {
+            music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/MainMusic");
+            music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            music.start();
+            musicStarted = true;
+        }
 
     }
 

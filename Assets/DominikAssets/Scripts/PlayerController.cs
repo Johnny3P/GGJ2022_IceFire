@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour
     private bool canCancelJump;
 
 
-    
-    
+
+
 
     // Start is called before the first frame update
     void Start()
