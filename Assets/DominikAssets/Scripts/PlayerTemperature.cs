@@ -139,10 +139,10 @@ public class PlayerTemperature : MonoBehaviour
 
         //If deadly temperature is reached -> game over
         if (!hasDied && IsDead())
-        {
+        {/*
             music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             music.release();
-
+            */
             hasDied = true;
 
             Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z - 0.5f), Quaternion.identity);
