@@ -4146,7 +4146,7 @@ MonoBehaviour:
       Data4: 434296817
     Path: event:/SFX/HitCold
   Event: 
-  PlayEvent: 1
+  PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -8418,7 +8418,6 @@ GameObject:
   - component: {fileID: 693580196}
   - component: {fileID: 693580198}
   - component: {fileID: 693580199}
-  - component: {fileID: 693580197}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8441,20 +8440,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &693580197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693580195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
-  ListenerNumber: -1
 --- !u!20 &693580198
 Camera:
   m_ObjectHideFlags: 0
@@ -15168,7 +15153,7 @@ MonoBehaviour:
       Data4: -831598824
     Path: event:/SFX/Walk
   Event: 
-  PlayEvent: 1
+  PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -15376,7 +15361,7 @@ MonoBehaviour:
       Data4: 953103479
     Path: event:/SFX/HitHot
   Event: 
-  PlayEvent: 1
+  PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
