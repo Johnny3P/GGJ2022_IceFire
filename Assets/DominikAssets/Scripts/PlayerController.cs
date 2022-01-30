@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
 
     public float cancelSpeed;
 
+   
+  
+        
+
+
+
     public LayerMask groundLayer;
 
     public Transform groundCheck;

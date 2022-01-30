@@ -8,6 +8,7 @@ public class PlayerTemperature : MonoBehaviour
 {
     public float temperature;
 
+    private FMOD.Studio.EventInstance Music;
 
     //Speed with which temperature moves to 0 back
     public float neutralizeSpeed;
@@ -41,6 +42,10 @@ public class PlayerTemperature : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/MainMusic");
+        // Music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        Music.start();
+
     }
 
     private void Update()
@@ -140,7 +145,10 @@ public class PlayerTemperature : MonoBehaviour
             GetComponent<PlayerController>().enabled = false;
 
             GameObject.Find("GameOverText").GetComponent<Text>().enabled = true;
-          
+
+            // Music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            
+
         }
 
         
