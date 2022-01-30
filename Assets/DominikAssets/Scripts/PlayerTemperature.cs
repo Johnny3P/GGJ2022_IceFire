@@ -47,7 +47,7 @@ public class PlayerTemperature : MonoBehaviour
 
 
         //Neutralize: Temperature moves slowly back to zero
-        if(canNeutralize && temperature != 0)
+        if(canNeutralize && Mathf.Abs(temperature) > 1)
         {
             temperature += -Mathf.Sign(temperature) * neutralizeSpeed;
             UpdateTemperatureUI();
