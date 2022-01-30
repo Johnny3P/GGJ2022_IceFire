@@ -32,8 +32,21 @@ public class LevelMenu : MonoBehaviour
         Debug.Log("Load Level 3");
     }
 
-    public void ComingSoon()
+    public void LoadLevel4()
     {
-        Debug.Log("Coming soon...");
+        //SceneManager.LoadScene("Level1");
+        Debug.Log("Load Level 4");
+    }
+
+    public void LoadLevel5()
+    {
+        //SceneManager.LoadScene("Level1");
+        Debug.Log("Load Level 5");
+    }
+
+    public void LoadLevel6()
+    {
+        //SceneManager.LoadScene("Level1");
+        Debug.Log("Load Level 6");
     }
 }
