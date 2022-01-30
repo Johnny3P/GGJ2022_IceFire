@@ -29,8 +29,17 @@ public class PlayerTemperature : MonoBehaviour
     private bool colorToggle;
     [SerializeField] private Renderer PlayerRenderer;
 
+    private Animator animator;
+
+    [SerializeField] private GameObject explosionPrefab;
+
+
+
+    private bool hasDied;
+
     private void Start()
     {
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -44,6 +53,13 @@ public class PlayerTemperature : MonoBehaviour
             UpdateTemperatureUI();
 
         }
+
+
+        if (hasDied && Input.anyKeyDown)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
 
         float temperatureColor = temperature / deadlyHotTemp;
         if (isColorChanging)
@@ -98,20 +114,33 @@ public class PlayerTemperature : MonoBehaviour
     //change temperature by value "change"
     public void ChangeTemperature(float change)
     {
-        temperature += change;
+        if (!hasDied)
+        {
 
+            temperature += change;
 
-        //Adjust Temperature in UI
-        UpdateTemperatureUI();
+            //Adjust Temperature in UI
+            UpdateTemperatureUI();
+        }
        
 
 
 
         //If deadly temperature is reached -> game over
-        if (IsDead())
+        if (!hasDied && IsDead())
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            hasDied = true;
+
+            Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z - 0.5f), Quaternion.identity);
+
+            animator.SetTrigger("Death");
+
+            GetComponent<PlayerController>().enabled = false;
+          
         }
+
+        
         
     }
 

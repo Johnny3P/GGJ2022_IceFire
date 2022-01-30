@@ -7,6 +7,11 @@ public class CameraScript : MonoBehaviour
 
     PlayerController player;
 
+    public float offsetX;
+    public float offsetY;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +22,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+        transform.position = new Vector3(player.transform.position.x + offsetX, player.transform.position.y + offsetY, transform.position.z);
 
         
     }

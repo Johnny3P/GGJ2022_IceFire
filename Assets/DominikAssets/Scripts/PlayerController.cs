@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(direction * moveSpeed, rb.velocity.y, 0);
 
       
-            animator.SetFloat("Speed", rb.velocity.magnitude);
+            animator.SetFloat("Speed", new Vector3(rb.velocity.x, 0, 0).magnitude);
         
 
         if (transform.parent != null)
