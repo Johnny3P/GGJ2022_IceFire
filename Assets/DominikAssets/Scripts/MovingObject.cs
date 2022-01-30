@@ -30,11 +30,10 @@ public class MovingObject : MonoBehaviour
     {
 
 
-        
+        //rb.MovePosition(transform.position + GetFromToDirection(gameObject.transform.position, destinations[destCount].position));
+        rb.velocity = GetFromToDirection(gameObject.transform.position, destinations[destCount].position);
 
-        rb.MovePosition(transform.position + GetFromToDirection(gameObject.transform.position, destinations[destCount].position));
-
-        if (Vector3.Distance(transform.position, destinations[destCount].position) < 0.1){
+        if (Vector3.Distance(transform.position, destinations[destCount].position) < 0.2){
 
             destCount++;
 
