@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerTemperature : MonoBehaviour
 {
@@ -137,6 +138,8 @@ public class PlayerTemperature : MonoBehaviour
             animator.SetTrigger("Death");
 
             GetComponent<PlayerController>().enabled = false;
+
+            GameObject.Find("GameOverText").GetComponent<Text>().enabled = true;
           
         }
 
