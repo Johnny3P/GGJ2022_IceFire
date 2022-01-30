@@ -28,8 +28,9 @@ public class LevelMenu : MonoBehaviour
 
     public void LoadLevel3()
     {
-        SceneManager.LoadScene("Level_J");
-        Debug.Log("Load Level 3");
+        //SceneManager.LoadScene("Level_J");
+        //Debug.Log("Load Level 3");
+        Debug.Log("Coming soon...");
     }
 
     public void LoadLevel4()
