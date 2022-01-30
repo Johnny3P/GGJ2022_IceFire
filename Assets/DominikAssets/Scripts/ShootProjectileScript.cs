@@ -29,9 +29,13 @@ public class ShootProjectileScript : MonoBehaviour
         {
             Transform p = Instantiate(projectile) as Transform;
 
-            p.position = gameObject.transform.position;
 
             Vector3 direction = new Vector3(shootDirections[directionCount].x * projectileSpeed, shootDirections[directionCount].y * projectileSpeed, shootDirections[directionCount].z);
+
+
+            p.position = new Vector3 ( gameObject.transform.position.x + direction.x, gameObject.transform.position.y + direction.y, gameObject.transform.position.z);
+           
+
 
             p.GetComponent<Rigidbody>().velocity = direction;
 
