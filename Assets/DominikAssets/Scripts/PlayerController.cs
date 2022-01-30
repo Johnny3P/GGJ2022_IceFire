@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
             animator.SetTrigger("Jump");
 
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Jump");
 
             groundCheckPauseComplete = false;
 
