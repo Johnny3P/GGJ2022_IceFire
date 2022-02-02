@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1269523139706458095}
   - component: {fileID: 1269523139706458097}
   - component: {fileID: 1269523139706458096}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ColdHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10.247283, z: 1}
-  m_Center: {x: 0, y: 4.7911696, z: 0}
+  m_Size: {x: 0.031530622, y: 0.020592049, z: 0.035049178}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1269523139706458096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,4 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ab35ea11e714e0087650d8c0da113c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temperatureChange: -0.3
+  temperatureChange: -0.6

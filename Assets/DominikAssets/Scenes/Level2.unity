@@ -23825,6 +23825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColdFlame (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1676225260467078224, guid: b45fbd781bbc740958697a4eb73448c4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b45fbd781bbc740958697a4eb73448c4, type: 3}
 --- !u!1001 &1780298298

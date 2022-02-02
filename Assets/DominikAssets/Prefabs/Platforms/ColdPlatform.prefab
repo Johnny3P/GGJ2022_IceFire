@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4226728482736430520}
   - component: {fileID: 4226728482736430518}
   - component: {fileID: 4226728482736430519}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ColdHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 7003842250523699589}
   - component: {fileID: 2831011878251388730}
   - component: {fileID: 8448199792720531926}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParentingHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

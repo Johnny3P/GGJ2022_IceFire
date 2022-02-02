@@ -234,34 +234,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1269523139706458096, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
-      propertyPath: temperatureChange
-      value: -0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269523139706458097, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
-      propertyPath: m_Size.x
-      value: 0.031530622
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269523139706458097, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
-      propertyPath: m_Size.y
-      value: 0.020592049
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269523139706458097, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
-      propertyPath: m_Size.z
-      value: 0.035049178
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269523139706458097, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269523139706458097, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269523139706458097, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87e7f1dcec6874732889e530477fb9f8, type: 3}
 --- !u!4 &1676225260467078225 stripped

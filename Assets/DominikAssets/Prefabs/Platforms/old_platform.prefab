@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4233589371409614480}
   - component: {fileID: 4233589371409614481}
   - component: {fileID: 4233589371409614486}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParentingHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

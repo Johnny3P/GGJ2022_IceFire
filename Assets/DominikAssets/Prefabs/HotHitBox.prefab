@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2362651267401454768}
   - component: {fileID: 2362651267401454774}
   - component: {fileID: 2362651267401454775}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HotHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 9.351554, z: 1}
-  m_Center: {x: 0, y: 4.1757765, z: 0}
+  m_Size: {x: 0.03153062, y: 0.02059205, z: 0.03504918}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2362651267401454775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,4 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ab35ea11e714e0087650d8c0da113c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temperatureChange: 0.3
+  temperatureChange: 0.6
